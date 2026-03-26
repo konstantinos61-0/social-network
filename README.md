@@ -1,4 +1,4 @@
-## social network
+# social network — Web Application
 A social network Django web application for making/liking posts and following users
 ### Demo
 A live demo video is available at: https://www.youtube.com/watch?v=SvSnZ-YqaRs

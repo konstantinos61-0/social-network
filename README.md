@@ -1,6 +1,6 @@
 # Social Network — Web Application
 ### Description
-A social network Django web application for making/liking posts and following users
+A social network Django web application for making/liking posts and following users. I completed this project as part of HarvardX's CS50-W course for Web Programming with Python and JavaScript.
 ### Demo
 A live demo video is available at: https://www.youtube.com/watch?v=SvSnZ-YqaRs
 ### Installation

@@ -1,0 +1,62 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block script %}
+    <script src="{% static 'network/posts.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+    <section class="post-container">
+        <h1>
+            {% if following %}
+                Following 
+            {% else %}
+                All Posts
+            {% endif %}
+
+        </h1>
+        {% for post in page_obj.object_list %}
+            <article class="post">
+                <h3><a href="{% url 'profile' post.owner.pk %}">{{ post.owner}}</a></h3>
+                <div>
+                    {% if user.pk == post.owner.pk %}
+                        <button class="edit-btn btn btn-secondary btn-sm" data-post="{{post.pk}}">Edit Post</button>
+                    {% endif %}
+                    <p>{{ post.text }}</p>
+                </div>
+                <section class="post-data">
+                    <div>
+                        {% if user in post.liked_by.all %}
+                            <button data-post="{{post.pk}}" data-like="y"  class="btn btn-outline-info like-btn btn-sm active" aria-pressed="true">❤️</button>
+                        {% else %}
+                            <button data-post="{{post.pk}}" data-like="n" class="btn btn-outline-info btn-sm like-btn">❤️</button>
+                        {% endif %}
+                        <span class="likes">{{ post.liked_by.count }}</span>
+                    </div>
+                    <div>
+                        <p><small>Created: {{post.creation_date}}</small></p>
+                    </div>
+                </section>                  
+            </article>
+        {% endfor %}
+    </section>
+    <nav class="pages"  aria-label="Post pages">
+        <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+            <li class="page-item"><a class="page-link" href="?page={{page_obj.previous_page_number}}">Previous</a></li>
+        {% endif %}
+        {% if page_obj.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{page_obj.next_page_number}}">Next</a></li>
+        {% endif %}
+        {% for page_index in elided_page_range%}
+            {% if page_index == page_obj.number %}
+                <li class="page-item active"><a class="page-link" href="?page={{page_index}}">{{page_index}}</a></li>
+            {% elif page_index == "…" %}
+                <li class="page-item disabled"><a class="page-link" href="">{{page_index}}</a></li>
+            {% else %}
+                <li class="page-item"><a class="page-link" href="?page={{page_index}}">{{page_index}}</a></li>
+            {% endif %}
+        {% endfor %}
+        </ul>
+    </nav>
+{% endblock %}

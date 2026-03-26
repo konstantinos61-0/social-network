@@ -1,0 +1,91 @@
+/* Sizes, colors, backgrounds, etc */
+body {
+    background-color: #edf5fa;
+    padding: 2px;
+}
+
+.post {
+    box-shadow: 2px 2px 2px rgb(0 0 0 / 60%),
+        inset 1px 1px 2px rgb(255 255 255 / 50%),
+        inset -1px -1px 2px rgb(0 0 0 / 50%);
+
+    border-radius: 10px;
+    border: 1px solid #01447d;
+    margin-bottom: 30px;
+    padding: 5px;
+    background-color: white;
+}
+
+.navbar {
+    box-shadow: 0px 2px 2px rgb(1 68 125 / 60%);
+    margin-bottom: 10px; 
+    border-bottom: 1px solid #01447d;
+    background-color: #034999;
+}
+
+#followers :nth-child(2) {
+    text-align: right;
+}
+#follow-btn {
+    display: block;
+    margin: 0 auto;
+    width: 70%;
+    margin-bottom: 8px;
+}
+#profile {
+    text-align: center;
+}
+.like-btn {
+    border-radius: 100%;
+}
+#date {
+    text-align: right;
+}
+
+
+/* Layout: Mobile First - Responsive Design */
+.post-data {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+
+#followers {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width: 70%;
+    margin: 0 auto;
+}
+
+#followers > p {
+    flex: 1;
+}
+
+.pages {
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+@media screen and (min-width: 640px) {
+    .body {
+    width: 50%;
+    margin: 0 auto;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .body {
+    width: 60%;
+    margin: 0 auto;
+    }
+}
+
+
+
+
+
+
+
